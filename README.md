@@ -3,6 +3,12 @@ The stack has been assembled as a Docker container using `docker-compose` to sim
 
 To install Docker Compose, please visit: https://docs.docker.com/compose/install/#install-compose
 
+Due to `git bundle` does not preserve existing file permission. We need to modify the permission of `entrypoint.sh` by running the foloowing at a command prompt, in the current directory:
+
+```
+$ chmod 755 payroll/entrypoint.sh
+```
+
 To build the application and start it, run the following at a command prompt, in the current directory:
 
 ```
