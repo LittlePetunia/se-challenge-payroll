@@ -1,0 +1,64 @@
+{% extends "csvmanage/base.html" %}
+  
+{% block title %}CSV Manager{% endblock %}
+  
+{% block content %}
+
+<div class = "page-header">  
+   <h1>
+      CSV Manger
+      <small>Upload and create report for payroll</small>
+   </h1> 
+</div>
+
+<div class="row">
+	<div class="col-md-5">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Upload CSV</h3>
+		  </div>
+		  <div class="panel-body fixed-panel">
+		  	<div class="upload-btn-wrapper">
+			  <button class="btnupload">Select a file<p id="select"></p></button>
+			  
+			  <input type="file" id="local_csv" multiple accept=".csv" onchange="read_csv(this.files)"> 
+			</div>
+		  	<br>
+		  	<div class="object_center">
+		  		<button class="btn btn-info" onclick="upload_csv()">Upload</button>
+		  	</div>
+		  	
+		  </div>
+		</div>
+	</div>
+
+	<div class="col-md-2"></div>
+
+
+	<div class="col-md-5">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Report</h3>
+		  </div>
+		  <div class="panel-body fixed-panel-table">
+		    <table class="table table-info">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Employee ID</th>
+			      <th scope="col">Pay Period</th>
+			      <th scope="col">Amount Paid</th>
+			    </tr>
+			  </thead>
+			  <tbody id="report_table_body">
+
+			  </tbody>
+			</table>
+		  </div>
+		</div>
+	</div>
+
+</div>
+
+ 
+ {% csrf_token %}
+{% endblock %}

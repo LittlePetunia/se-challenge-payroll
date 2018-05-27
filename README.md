@@ -1,3 +1,22 @@
+## Build/Run
+The stack has been assembled as a Docker container using `docker-compose` to simplify the install/setup process. The network is defined in `docker-compose.yml`, while the app server's image is defined in `Dockerfile`.
+
+To install Docker Compose, please visit: https://docs.docker.com/compose/install/#install-compose
+
+To build the application and start it, run the following at a command prompt, in the current directory:
+
+```
+$ docker-compose up
+```
+
+The webserver will be accessible in: http://localhost:8000/
+
+## About
+A key decision I made to not reinvent the wheel was relying on Django's ORM to handle the report sorting process. Since we want to sort the report table by both employee id and dates, this can easily incurr messy logic in the application level. By defining a ordering Meta class in the Payroll_Report model(csvmanage/models.py), it allows the get report endpoint to simply fetch and return all objects from the Payroll_Report table.
+
+
+
+
 # Wave Software Development Challenge
 
 Applicants for the [Software
